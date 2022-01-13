@@ -1,12 +1,16 @@
 import { ICity } from "../models/cities";
-import { getCities } from "../repositories/city.repository";
+import {
+  ICityResponse,
+  getCities,
+  getCityDetail,
+} from "../repositories/city.repository";
 
 export default class CityController {
-  public async getCities(): Promise<ICity[]> {
+  public async getCities(): Promise<ICityResponse[]> {
     return getCities();
   }
 
   public async getCity(city: string): Promise<ICity[]> {
-    return getCities(city);
+    return getCityDetail(city);
   }
 }
