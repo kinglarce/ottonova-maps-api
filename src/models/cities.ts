@@ -18,7 +18,7 @@ interface ICities {
   [key: string]: string | string[];
 }
 
-interface Properties {
+interface IProperties {
   [key: string]: string;
 }
 
@@ -27,18 +27,18 @@ const all = async (): Promise<IMaps | unknown> => {
   return <IMaps | unknown>response.json();
 };
 
-const findByMatchingProperties = (data: ICities[], properties: Properties) =>
+const findByMatchingProperties = (data: ICities[], properties: IProperties) =>
   data.filter((entry: ICities) =>
     Object.keys(properties).every((key: string) => {
-      return entry[key] === properties[key];
+      return properties[key] && entry[key] === properties[key];
     })
   );
 
-const find = async (properties: Properties): Promise<ICities[]> => {
+const find = async (properties?: IProperties): Promise<ICities[]> => {
   const response = <IMaps>await all();
   const data = response.cities;
   if (!properties) return data;
   return findByMatchingProperties(data, properties);
 };
 
-export { ICities, find };
+export { ICities, IProperties, find };

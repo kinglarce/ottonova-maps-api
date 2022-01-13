@@ -1,12 +1,8 @@
 import express from "express";
-import MapsController from "../controllers/maps";
+import CityRouter from "./city.router";
 
 const router = express.Router();
 
-router.get("/maps", async (_req, res) => {
-  const controller = new MapsController();
-  const response = await controller.getResponse();
-  return res.send(response);
-});
+router.use("/cities", CityRouter);
 
 export default router;
