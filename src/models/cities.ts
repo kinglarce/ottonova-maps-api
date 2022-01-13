@@ -1,5 +1,5 @@
 import fetch from "node-fetch";
-const DB = "http://localhost:8000/cities.json";
+const DB = `${process.env.URL}/cities.json`;
 
 interface IMaps {
   cities: ICities[];
