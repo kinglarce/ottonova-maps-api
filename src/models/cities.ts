@@ -3,7 +3,6 @@ const DB = `${process.env.URL}/cities.json`;
 
 interface ICity {
   name: string;
-  name_native: string;
   country: string;
   continent: string;
   latitude: string;
