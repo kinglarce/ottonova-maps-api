@@ -40,4 +40,4 @@ const find = async (properties?: IProperties): Promise<ICity[]> => {
   return findByMatchingProperties(data, properties);
 };
 
-export { ICity, IProperties, find };
+export { ICity, IProperties, find, findByMatchingProperties };
