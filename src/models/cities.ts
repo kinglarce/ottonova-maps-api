@@ -1,5 +1,5 @@
 import fetch from "node-fetch";
-const DB = `${process.env.URL}/cities.json`;
+const hostURL = `${process.env.HOST_URL}/cities.json`;
 
 interface ICity {
   name: string;
@@ -22,7 +22,7 @@ interface IProperties {
 }
 
 const all = async (): Promise<IMaps | unknown> => {
-  const response = await fetch(DB);
+  const response = await fetch(hostURL);
   return <IMaps | unknown>response.json();
 };
 
