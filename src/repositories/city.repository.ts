@@ -6,9 +6,4 @@ const getCities = async (continent?: string): Promise<ICity[]> => {
   return response;
 };
 
-const getContents = async (): Promise<string[]> => {
-  const response = await find();
-  return response.map(({ continent }: ICity) => continent);
-};
-
-export { getCities, getContents };
+export { getCities };
